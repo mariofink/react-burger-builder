@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import BurgerIngredient from "components/Burger/BurgerIngredient/BurgerIngredient";
+import Burger from "components/Burger/Burger";
 
 export default class BurgerBuilder extends Component {
   constructor() {
@@ -17,9 +17,7 @@ export default class BurgerBuilder extends Component {
     return (
       <div>
         <div>
-          {this.state.ingredients.map((ingredient, i) => (
-            <BurgerIngredient type={ingredient} key={ingredient + i} />
-          ))}
+          <Burger ingredients={this.state.ingredients} />
         </div>
         <div>
           <button onClick={() => this.addIngredient("bread")}>Add bread</button>
