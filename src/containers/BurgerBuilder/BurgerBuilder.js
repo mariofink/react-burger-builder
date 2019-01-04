@@ -2,24 +2,24 @@ import React, { Component } from "react";
 import Burger from "components/Burger/Burger";
 import BuildControls from "components/Burger/BuildControls/BuildControls";
 
-const availableIngredients = [
-  {
+const availableIngredients = {
+  bread: {
     label: "Bread",
-    type: "bread"
+    price: 1
   },
-  {
+  patty: {
     label: "Patty",
-    type: "patty"
+    price: 2
   },
-  {
+  tomatoe: {
     label: "Tomatoe",
-    type: "tomatoe"
+    price: 0.5
   },
-  {
+  lettuce: {
     label: "Lettuce",
-    type: "lettuce"
+    price: 0.3
   }
-];
+};
 
 export default class BurgerBuilder extends Component {
   constructor() {

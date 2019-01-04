@@ -3,9 +3,12 @@ import React from "react";
 export default function(props) {
   return (
     <div>
-      {props.availableIngredients.map(ingredient => (
-        <button onClick={() => props.onAddIngredient(ingredient.type)}>
-          Add {ingredient.label}
+      {Object.keys(props.availableIngredients).map(ingredientKey => (
+        <button
+          key={ingredientKey}
+          onClick={() => props.onAddIngredient(ingredientKey)}
+        >
+          Add {props.availableIngredients[ingredientKey].label}
         </button>
       ))}
     </div>
