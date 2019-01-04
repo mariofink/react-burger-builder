@@ -44,10 +44,21 @@ export default class BurgerBuilder extends Component {
       return currentPrice + availableIngredients[ingredient].price;
     }, BASE_PRICE);
   }
+  order() {
+    console.log("show order modal");
+  }
   render() {
     return (
       <div>
         <div>{this.state.totalPrice}€</div>
+        <div>
+          <button
+            onClick={() => this.order()}
+            disabled={this.state.ingredients.length < 1}
+          >
+            Order Now
+          </button>
+        </div>
         <div>
           <BuildControls
             availableIngredients={availableIngredients}
