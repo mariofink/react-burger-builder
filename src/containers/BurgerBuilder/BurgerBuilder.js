@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Burger from "components/Burger/Burger";
 import BuildControls from "components/Burger/BuildControls/BuildControls";
 
+const BASE_PRICE = 5;
 const availableIngredients = {
   bread: {
     label: "Bread",
@@ -25,17 +26,28 @@ export default class BurgerBuilder extends Component {
   constructor() {
     super();
     this.state = {
-      ingredients: []
+      ingredients: [],
+      totalPrice: BASE_PRICE
     };
   }
   addIngredient(ingredient) {
-    this.setState({
-      ingredients: [ingredient, ...this.state.ingredients]
+    this.setState(state => {
+      const updatedIngredients = [ingredient, ...state.ingredients];
+      return {
+        ingredients: updatedIngredients,
+        totalPrice: this.calculateTotalPrice(updatedIngredients)
+      };
     });
+  }
+  calculateTotalPrice(ingredients) {
+    return ingredients.reduce((currentPrice, ingredient) => {
+      return currentPrice + availableIngredients[ingredient].price;
+    }, BASE_PRICE);
   }
   render() {
     return (
       <div>
+        <div>{this.state.totalPrice}€</div>
         <div>
           <BuildControls
             availableIngredients={availableIngredients}
