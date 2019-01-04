@@ -37,13 +37,13 @@ export default class BurgerBuilder extends Component {
     return (
       <div>
         <div>
-          <Burger ingredients={this.state.ingredients} />
-        </div>
-        <div>
           <BuildControls
             availableIngredients={availableIngredients}
             onAddIngredient={type => this.addIngredient(type)}
           />
+        </div>
+        <div>
+          <Burger ingredients={this.state.ingredients} />
         </div>
       </div>
     );
