@@ -13,7 +13,7 @@ export default function(props) {
     });
   }
   return (
-    <Modal>
+    <Modal show={props.show}>
       <ul>
         <li>Base price – {props.basePrice}€</li>
         {ingredientList()}

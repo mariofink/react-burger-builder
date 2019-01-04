@@ -52,14 +52,13 @@ export default class BurgerBuilder extends Component {
   render() {
     return (
       <div>
-        {this.state.purchasing ? (
-          <OrderSummary
-            availableIngredients={availableIngredients}
-            ingredients={this.state.ingredients}
-            basePrice={BASE_PRICE}
-            totalPrice={this.state.totalPrice}
-          />
-        ) : null}
+        <OrderSummary
+          availableIngredients={availableIngredients}
+          ingredients={this.state.ingredients}
+          basePrice={BASE_PRICE}
+          totalPrice={this.state.totalPrice}
+          show={this.state.purchasing}
+        />
         <div>{this.state.totalPrice}€</div>
         <div>
           <button
