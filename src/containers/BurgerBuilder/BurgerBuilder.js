@@ -28,7 +28,8 @@ export default class BurgerBuilder extends Component {
     super();
     this.state = {
       ingredients: [],
-      totalPrice: BASE_PRICE
+      totalPrice: BASE_PRICE,
+      purchasing: false
     };
   }
   addIngredient(ingredient) {
@@ -45,22 +46,24 @@ export default class BurgerBuilder extends Component {
       return currentPrice + availableIngredients[ingredient].price;
     }, BASE_PRICE);
   }
-  order() {
-    console.log("show order modal");
-  }
+  order = () => {
+    this.setState({ purchasing: true });
+  };
   render() {
     return (
       <div>
-        <OrderSummary
-          availableIngredients={availableIngredients}
-          ingredients={this.state.ingredients}
-          basePrice={BASE_PRICE}
-          totalPrice={this.state.totalPrice}
-        />
+        {this.state.purchasing ? (
+          <OrderSummary
+            availableIngredients={availableIngredients}
+            ingredients={this.state.ingredients}
+            basePrice={BASE_PRICE}
+            totalPrice={this.state.totalPrice}
+          />
+        ) : null}
         <div>{this.state.totalPrice}€</div>
         <div>
           <button
-            onClick={() => this.order()}
+            onClick={this.order}
             disabled={this.state.ingredients.length < 1}
           >
             Order Now
