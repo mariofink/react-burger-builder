@@ -1,5 +1,25 @@
 import React, { Component } from "react";
 import Burger from "components/Burger/Burger";
+import BuildControls from "components/Burger/BuildControls/BuildControls";
+
+const availableIngredients = [
+  {
+    label: "Bread",
+    type: "bread"
+  },
+  {
+    label: "Patty",
+    type: "patty"
+  },
+  {
+    label: "Tomatoe",
+    type: "tomatoe"
+  },
+  {
+    label: "Lettuce",
+    type: "lettuce"
+  }
+];
 
 export default class BurgerBuilder extends Component {
   constructor() {
@@ -20,14 +40,10 @@ export default class BurgerBuilder extends Component {
           <Burger ingredients={this.state.ingredients} />
         </div>
         <div>
-          <button onClick={() => this.addIngredient("bread")}>Add bread</button>
-          <button onClick={() => this.addIngredient("patty")}>Add patty</button>
-          <button onClick={() => this.addIngredient("tomatoe")}>
-            Add tomatoe
-          </button>
-          <button onClick={() => this.addIngredient("lettuce")}>
-            Add lettuce
-          </button>
+          <BuildControls
+            availableIngredients={availableIngredients}
+            onAddIngredient={type => this.addIngredient(type)}
+          />
         </div>
       </div>
     );
