@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Burger from "components/Burger/Burger";
 import BuildControls from "components/Burger/BuildControls/BuildControls";
+import OrderSummary from "components/Burger/OrderSummary/OrderSummary";
 
 const BASE_PRICE = 5;
 const availableIngredients = {
@@ -50,6 +51,12 @@ export default class BurgerBuilder extends Component {
   render() {
     return (
       <div>
+        <OrderSummary
+          availableIngredients={availableIngredients}
+          ingredients={this.state.ingredients}
+          basePrice={BASE_PRICE}
+          totalPrice={this.state.totalPrice}
+        />
         <div>{this.state.totalPrice}€</div>
         <div>
           <button
