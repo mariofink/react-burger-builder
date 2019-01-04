@@ -1,0 +1,20 @@
+.BurgerIngredient {
+  height: 25px;
+  width: 200px;
+}
+
+.tomatoe {
+  background: tomato;
+}
+
+.patty {
+  background: brown;
+}
+
+.bread {
+  background: goldenrod;
+}
+
+.lettuce {
+  background: green;
+}
